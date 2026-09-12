@@ -1,0 +1,71 @@
+<mxfile host="Electron" agent="netflix-hld-generator">
+  <diagram name="Content Ingestion Pipeline" id="content-ingestion-pipeline">
+    <mxGraphModel dx="3213" dy="2523" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="2500" pageHeight="730" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="n0bg" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0a0a12;gradientColor=#12121c;gradientDirection=south;strokeColor=none;" value="" vertex="1"><mxGeometry height="1500" width="2500" as="geometry" /></mxCell>
+        <mxCell id="topbar" parent="1" style="rounded=0;html=1;fillColor=#e50914;strokeColor=none;" value="" vertex="1"><mxGeometry height="6" width="2500" as="geometry" /></mxCell>
+        <mxCell id="t1" parent="1" style="text;html=1;fontColor=#ffffff;fontSize=28;align=left;valign=middle;fontStyle=1;" value="Netflix — Content Ingestion Pipeline (Admin / Studio side)" vertex="1"><mxGeometry height="42" width="1400" x="60" y="28" as="geometry" /></mxCell>
+        <mxCell id="ts2" parent="1" style="text;html=1;fontColor=#9a9aac;fontSize=13;align=left;valign=middle;" value="End-to-end flow from studio master upload to CDN publish, with QC and metadata gates" vertex="1"><mxGeometry height="24" width="1600" x="62" y="70" as="geometry" /></mxCell>
+        <mxCell id="h3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0f1a2c;strokeColor=#4d84c9;fontColor=#ffffff;fontSize=12;align=center;valign=middle;strokeWidth=1.5;spacing=8;fontStyle=1;arcSize=10;" value="1. Studio Upload" vertex="1"><mxGeometry height="60" width="328.57142857142856" x="40" y="140" as="geometry" /></mxCell>
+        <mxCell id="b4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a1a26;strokeColor=#4d84c9;fontColor=#e8e8ee;fontSize=10;align=left;valign=top;strokeWidth=1.5;spacing=10;arcSize=6;" value="&lt;b&gt;Content Uploader
+(Studio / Admin portal)&lt;/b&gt;&lt;br&gt;&lt;br&gt;&amp;bull; Secure upload of mezzanine
+master file (ProRes/IMF)
+&amp;bull; Resumable multipart upload
+&amp;bull; Metadata form: title, cast,
+genre, licensing window" vertex="1"><mxGeometry height="220" width="328.57142857142856" x="40" y="208" as="geometry" /></mxCell>
+        <mxCell id="h5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3a2a0a;strokeColor=#e0a030;fontColor=#ffffff;fontSize=12;align=center;valign=middle;strokeWidth=1.5;spacing=8;fontStyle=1;arcSize=10;" value="2. Validation" vertex="1"><mxGeometry height="60" width="328.57142857142856" x="388.57142857142856" y="140" as="geometry" /></mxCell>
+        <mxCell id="b6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a1a26;strokeColor=#e0a030;fontColor=#e8e8ee;fontSize=10;align=left;valign=top;strokeWidth=1.5;spacing=10;arcSize=6;" value="&lt;b&gt;Ingest Validation Service&lt;/b&gt;&lt;br&gt;&lt;br&gt;&amp;bull; Checksum / integrity check
+&amp;bull; Format &amp; codec validation
+&amp;bull; Malware / content scan
+&amp;bull; Rights &amp; region metadata check" vertex="1"><mxGeometry height="220" width="328.57142857142856" x="388.57142857142856" y="208" as="geometry" /></mxCell>
+        <mxCell id="h7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2a1030;strokeColor=#b060d0;fontColor=#ffffff;fontSize=12;align=center;valign=middle;strokeWidth=1.5;spacing=8;fontStyle=1;arcSize=10;" value="3. Transcoding" vertex="1"><mxGeometry height="60" width="328.57142857142856" x="737.1428571428571" y="140" as="geometry" /></mxCell>
+        <mxCell id="b8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a1a26;strokeColor=#b060d0;fontColor=#e8e8ee;fontSize=10;align=left;valign=top;strokeWidth=1.5;spacing=10;arcSize=6;" value="&lt;b&gt;Transcoding / Encoding
+Service (multi-bitrate)&lt;/b&gt;&lt;br&gt;&lt;br&gt;&amp;bull; Encode to bitrate ladder
+(240p-4K, 5+ renditions)
+&amp;bull; Generate HLS/DASH segments
+&amp;bull; Parallelized encode farm" vertex="1"><mxGeometry height="220" width="328.57142857142856" x="737.1428571428571" y="208" as="geometry" /></mxCell>
+        <mxCell id="h9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2a1030;strokeColor=#b060d0;fontColor=#ffffff;fontSize=12;align=center;valign=middle;strokeWidth=1.5;spacing=8;fontStyle=1;arcSize=10;" value="4. Packaging &amp; DRM" vertex="1"><mxGeometry height="60" width="328.57142857142856" x="1085.7142857142858" y="140" as="geometry" /></mxCell>
+        <mxCell id="b10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a1a26;strokeColor=#b060d0;fontColor=#e8e8ee;fontSize=10;align=left;valign=top;strokeWidth=1.5;spacing=10;arcSize=6;" value="&lt;b&gt;DRM Packaging Service&lt;/b&gt;&lt;br&gt;&lt;br&gt;&amp;bull; Encrypt segments (CENC)
+&amp;bull; Widevine/FairPlay/PlayReady
+key provisioning
+&amp;bull; Generate signed manifests" vertex="1"><mxGeometry height="220" width="328.57142857142856" x="1085.7142857142858" y="208" as="geometry" /></mxCell>
+        <mxCell id="h11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3a2a0a;strokeColor=#e0a030;fontColor=#ffffff;fontSize=12;align=center;valign=middle;strokeWidth=1.5;spacing=8;fontStyle=1;arcSize=10;" value="5. Quality Control" vertex="1"><mxGeometry height="60" width="328.57142857142856" x="1434.2857142857142" y="140" as="geometry" /></mxCell>
+        <mxCell id="b12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a1a26;strokeColor=#e0a030;fontColor=#e8e8ee;fontSize=10;align=left;valign=top;strokeWidth=1.5;spacing=10;arcSize=6;" value="&lt;b&gt;Automated + Manual QC&lt;/b&gt;&lt;br&gt;&lt;br&gt;&amp;bull; Automated frame/audio-sync
+checks
+&amp;bull; Subtitle/caption validation
+&amp;bull; Manual spot-check sampling
+&amp;bull; Reject → back to step 3" vertex="1"><mxGeometry height="220" width="328.57142857142856" x="1434.2857142857142" y="208" as="geometry" /></mxCell>
+        <mxCell id="h13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a3a1a;strokeColor=#4caf50;fontColor=#ffffff;fontSize=12;align=center;valign=middle;strokeWidth=1.5;spacing=8;fontStyle=1;arcSize=10;" value="6. Storage &amp; Publish" vertex="1"><mxGeometry height="60" width="328.57142857142856" x="1782.8571428571427" y="140" as="geometry" /></mxCell>
+        <mxCell id="b14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a1a26;strokeColor=#4caf50;fontColor=#e8e8ee;fontSize=10;align=left;valign=top;strokeWidth=1.5;spacing=10;arcSize=6;" value="&lt;b&gt;Video Object Storage (S3)
++ Catalog Publish&lt;/b&gt;&lt;br&gt;&lt;br&gt;&amp;bull; Write encoded chunks to S3
+&amp;bull; Publish title metadata to
+Catalog Service / Cassandra
+&amp;bull; Update Search index" vertex="1"><mxGeometry height="220" width="328.57142857142856" x="1782.8571428571427" y="208" as="geometry" /></mxCell>
+        <mxCell id="h15" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2a1030;strokeColor=#b060d0;fontColor=#ffffff;fontSize=12;align=center;valign=middle;strokeWidth=1.5;spacing=8;fontStyle=1;arcSize=10;" value="7. CDN Distribution" vertex="1"><mxGeometry height="60" width="328.57142857142856" x="2131.428571428571" y="140" as="geometry" /></mxCell>
+        <mxCell id="b16" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a1a26;strokeColor=#b060d0;fontColor=#e8e8ee;fontSize=10;align=left;valign=top;strokeWidth=1.5;spacing=10;arcSize=6;" value="&lt;b&gt;Open Connect CDN
+Edge Push&lt;/b&gt;&lt;br&gt;&lt;br&gt;&amp;bull; Pre-position popular titles
+at ISP edge caches
+&amp;bull; Cache warm-up by region
+&amp;bull; Available for playback" vertex="1"><mxGeometry height="220" width="328.57142857142856" x="2131.428571428571" y="208" as="geometry" /></mxCell>
+        <mxCell id="e17" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#6a6a7c;strokeWidth=1.5;dashed=0;" edge="1" source="b4" target="b6" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e18" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#6a6a7c;strokeWidth=1.5;dashed=0;" edge="1" source="b6" target="b8" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e19" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#6a6a7c;strokeWidth=1.5;dashed=0;" edge="1" source="b8" target="b10" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e20" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#6a6a7c;strokeWidth=1.5;dashed=0;" edge="1" source="b10" target="b12" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e21" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#6a6a7c;strokeWidth=1.5;dashed=0;" edge="1" source="b12" target="b14" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e22" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#6a6a7c;strokeWidth=1.5;dashed=0;" edge="1" source="b14" target="b16" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e23" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#e05050;strokeWidth=1.5;dashed=1;fontColor=#c9c9d8;fontSize=10;" edge="1" source="b12" target="b8" value="QC failed → re-encode"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="h24" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a1a26;strokeColor=#5a5a6c;fontColor=#ffffff;fontSize=12;align=center;valign=middle;strokeWidth=1.5;spacing=8;fontStyle=1;arcSize=10;" value="Cross-Cutting Concerns" vertex="1"><mxGeometry height="34" width="2420" x="40" y="478" as="geometry" /></mxCell>
+        <mxCell id="h25" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0f1a2c;strokeColor=#4d84c9;fontColor=#ffffff;fontSize=11;align=center;valign=middle;strokeWidth=1.5;spacing=8;fontStyle=1;arcSize=10;" value="Job Orchestration" vertex="1"><mxGeometry height="40" width="590.0" x="40" y="522" as="geometry" /></mxCell>
+        <mxCell id="b26" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a1a26;strokeColor=#4d84c9;fontColor=#e8e8ee;fontSize=10;align=left;valign=top;strokeWidth=1.5;spacing=10;arcSize=6;" value="Workflow engine (e.g. Step Functions/Airflow-style) tracks each title through the pipeline stages, retries failed steps, and emits status events." vertex="1"><mxGeometry height="120" width="590.0" x="40" y="570" as="geometry" /></mxCell>
+        <mxCell id="h27" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3a2a0a;strokeColor=#e0a030;fontColor=#ffffff;fontSize=11;align=center;valign=middle;strokeWidth=1.5;spacing=8;fontStyle=1;arcSize=10;" value="Notifications" vertex="1"><mxGeometry height="40" width="590.0" x="650.0" y="522" as="geometry" /></mxCell>
+        <mxCell id="b28" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a1a26;strokeColor=#e0a030;fontColor=#e8e8ee;fontSize=10;align=left;valign=top;strokeWidth=1.5;spacing=10;arcSize=6;" value="Studio/admin users receive status updates (queued, encoding, QC failed, published) via the Content Ops Service." vertex="1"><mxGeometry height="120" width="590.0" x="650.0" y="570" as="geometry" /></mxCell>
+        <mxCell id="h29" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2a1030;strokeColor=#b060d0;fontColor=#ffffff;fontSize=11;align=center;valign=middle;strokeWidth=1.5;spacing=8;fontStyle=1;arcSize=10;" value="Audit &amp; Compliance" vertex="1"><mxGeometry height="40" width="590.0" x="1260.0" y="522" as="geometry" /></mxCell>
+        <mxCell id="b30" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a1a26;strokeColor=#b060d0;fontColor=#e8e8ee;fontSize=10;align=left;valign=top;strokeWidth=1.5;spacing=10;arcSize=6;" value="Every ingestion action is logged for rights management, licensing-window enforcement, and takedown compliance." vertex="1"><mxGeometry height="120" width="590.0" x="1260.0" y="570" as="geometry" /></mxCell>
+        <mxCell id="h31" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a3a1a;strokeColor=#4caf50;fontColor=#ffffff;fontSize=11;align=center;valign=middle;strokeWidth=1.5;spacing=8;fontStyle=1;arcSize=10;" value="Cost &amp; Scaling" vertex="1"><mxGeometry height="40" width="590.0" x="1870.0" y="522" as="geometry" /></mxCell>
+        <mxCell id="b32" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a1a26;strokeColor=#4caf50;fontColor=#e8e8ee;fontSize=10;align=left;valign=top;strokeWidth=1.5;spacing=10;arcSize=6;" value="Encode farm autoscales on queue depth; spot/preemptible compute used for non-urgent batch transcode jobs." vertex="1"><mxGeometry height="120" width="590.0" x="1870.0" y="570" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
